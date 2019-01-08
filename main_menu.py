@@ -150,8 +150,7 @@ def review():
         while True:
             pronounce = input("Press p(pronunciation), press n(next word)")
             if pronounce.lower() == "p":
-                pygame.mixer.music.load('daunt.mp3')
-                pygame.mixer.music.play()
+                print(f"pronunciation of {k}")
             elif pronounce.lower() == "n":
                 break
 
