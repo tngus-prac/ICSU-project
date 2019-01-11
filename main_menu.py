@@ -1,8 +1,9 @@
 import random
-import pygame
-pygame.init()
+import pyglet
 
-ieltswords = {'daunt':'기죽게하다', 'venerate':'존경하다', 'discepant':'일치하지 않은/모순된', 'discretion':'신중, 분별','predicament':',곤경, 분별'}
+
+ieltswords = {'daunt':'기죽게하다', 'venerate':'존경하다', 'discepant':'일치하지 않은/모순된', 'discretion':'신중, 분별','predicament':'곤경, 분별', 'nocturnal':'야행성의'}
+
 
 def mainMenu():
 
@@ -51,7 +52,7 @@ def mainMenu():
 
 
 def words():
-    """ Save the words the user doesn't know to my words """
+    """ Save the words users don't know to my words """
     my_word = {}
     for k,v in ieltswords.items():
         while True:
@@ -150,7 +151,9 @@ def review():
         while True:
             pronounce = input("Press p(pronunciation), press n(next word)")
             if pronounce.lower() == "p":
-                print(f"pronunciation of {k}")
+                 sound = pyglet.media.load('daunt.mp3', streaming=False) 
+                 sound.play()
+
             elif pronounce.lower() == "n":
                 break
 
