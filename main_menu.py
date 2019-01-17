@@ -2,7 +2,13 @@ import random
 import pyglet
 
 
-ieltswords = {'daunt':'기죽게하다', 'venerate':'존경하다', 'discepant':'일치하지 않은/모순된', 'discretion':'신중, 분별','predicament':'곤경, 분별', 'nocturnal':'야행성의'}
+ieltswords = {'daunt':'기죽게하다', 'venerate':'존경하다', 'discepant':'일치하지 않은/모순된','discretion':'신중, 분별','predicament':'곤경, 분별','nocturnal':'야행성의','troop':'군대','inconspicuous':'눈에 띄지않는','penetrate':'투과하다','hydrothermal':'열수의','arithmometer':'계산기','dormant':'휴면(동면)중인, 움직이지 않는','recruitment':'모집','membrane':'막','derive':'추출하다','kingfisher':'물총새','tepee':'천막집','thrive':'번성하다','intricate':'복잡한','microorganism':'미생물','descendant':'계승자','intimacy':'친밀도','affluence':'풍족함','mock':'조롱하다'}
+chap_1 = {'daunt':'기죽게하다', 'venerate':'존경하다', 'discepant':'일치하지 않은/모순된','discretion':'신중, 분별','predicament':'곤경, 분별','nocturnal':'야행성의'}
+chap_2 = {'troop':'군대','inconspicuous':'눈에 띄지않는','penetrate':'투과하다','hydrothermal':'열수의','arithmometer':'계산기','dormant':'휴면(동면)중인, 움직이지 않는'}
+chap_3 = {'recruitment':'모집','membrane':'막','derive':'추출하다','kingfisher':'물총새','tepee':'천막집','thrive':'번성하다'}
+chap_4 = {'intricate':'복잡한','microorganism':'미생물','descendant':'계승자','intimacy':'친밀도','affluence':'풍족함','mock':'조롱하다'}
+
+music = ['music/daunt', 'music/venerate', 'music/discepant','music/discretion','music/predicament','music/nocturnal','music/troop','music/inconspicuous','music/penetrate','music/hydrothermal','music/arithmometer','music/dormant','music/recruitment','music/membrane','music/derive','music/kingfisher','music/tepee','music/thrive','music/intricate','music/microorganism','music/descendant','music/intimacy','music/affluence','music/mock']
 
 
 def mainMenu():
@@ -146,16 +152,16 @@ def addwords():
 
 def review():
     """ Review my words with pronunciation\nPress P to listen"""
-    for k,v in ieltswords.items():
+    for k,v,i in ieltswords.items(), music:
         print("\n**** ",k, v," ****\n")
-        while True:
-            pronounce = input("Press p(pronunciation), press n(next word)")
+        pronounce = input("Press p(pronunciation), press n(next word)")
             if pronounce.lower() == "p":
-                 sound = pyglet.media.load('daunt.mp3', streaming=False) 
-                 sound.play()
-
+                pygame.mixer.init(22050,-16,2,4096)
+                pygame.mixer.music.load(i)
+                pygame.mixer.music.play()
             elif pronounce.lower() == "n":
                 break
+
 
 
 
