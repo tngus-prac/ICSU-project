@@ -152,7 +152,7 @@ def addwords():
 
 def review():
     """ Review my words with pronunciation\nPress P to listen"""
-    for k,v,i in ieltswords.items(), music:
+    for k,v in ieltswords.items():
         print("\n**** ",k, v," ****\n")
         pronounce = input("Press p(pronunciation), press n(next word)")
             if pronounce.lower() == "p":
